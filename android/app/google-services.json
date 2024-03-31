@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1096605823866",
+    "project_id": "kittiechat-24ee2",
+    "storage_bucket": "kittiechat-24ee2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096605823866:android:bf21927ddde7e3af6d9cc3",
+        "android_client_info": {
+          "package_name": "com.example.kittie_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096605823866-djmdpvcaom79p93k96p55nj107fm6vhi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kittie_chat",
+            "certificate_hash": "48bdcdf7ec45f5173cf99a943d215dcffa8247c1"
+          }
+        },
+        {
+          "client_id": "1096605823866-d29k2ltn8vco793clijsrq1s2bs741du.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhXbyzlORhizW9N393xgiD94LgB9UCEeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096605823866-d29k2ltn8vco793clijsrq1s2bs741du.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1096605823866-7cj6jj63qdl5c7ib9tvc33espmlhbjua.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kittieChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
