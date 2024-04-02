@@ -2,10 +2,15 @@ import "package:firebase_auth/firebase_auth.dart";
 import "package:firebase_core/firebase_core.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 import "package:kittie_chat/screens/api.dart";
 import "package:kittie_chat/screens/auth/login_scren.dart";
 import "package:kittie_chat/screens/home_screen.dart";
 import '../../main.dart';
+
+String hexColor = "#734F96"; // dark lavender
+Color semiTransparentColor =
+    Color(int.parse(hexColor.substring(1, 7), radix: 16) + 0x80000000);
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,6 +23,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        systemNavigationBarColor: semiTransparentColor,
+        statusBarColor: semiTransparentColor));
 
     Future.delayed(const Duration(milliseconds: 1500), () {
       if (APIs.auth.currentUser != null) {

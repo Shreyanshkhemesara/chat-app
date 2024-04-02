@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kittie_chat/main.dart';
 import 'package:kittie_chat/model/chat_user.dart';
+import 'package:kittie_chat/screens/chat_screen.dart';
 
 String hexColor = "#734F96"; // dark lavender
 Color semiTransparentColor =
@@ -21,6 +22,10 @@ class _ChatUserCardState extends State<ChatUserCard> {
     print(widget.user.image);
     return Card(
       child: InkWell(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (_) => ChatScreen(user: widget.user)));
+        },
         child: Card(
           child: ListTile(
             // leading: CircleAvatar(
