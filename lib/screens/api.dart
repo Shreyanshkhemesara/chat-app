@@ -4,20 +4,21 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:kittie_chat/model/chat_user.dart';
 
 class APIs {
   static ChatUser me = ChatUser(
       id: user.uid,
+      username: user.displayName.toString(),
       name: user.displayName.toString(),
       email: user.email.toString(),
-      about: "Hey, I'm using kittie Chat!",
+      about: "Hey, I'm using We Chat!",
       image: user.photoURL.toString(),
       createdAt: '',
       isOnline: false,
       lastActive: '',
-      pushToken: '',
-      username: user.displayName.toString());
+      pushToken: '');
 
   static FirebaseAuth auth = FirebaseAuth.instance;
   // to store data in firestore api
@@ -71,15 +72,14 @@ class APIs {
         .snapshots();
   }
 
-  static Future<void> updateUserInfo() async {
-    await firestore.collection('chatUser').doc(user.uid).update({
-      'name': me.name,
-      'about': me.about,
+  static Future<void> updateUserInfo(var name, var about) async {
+    await firestore.collection('chatUser').doc(me.id).update({
+      'name': name,
+      'about': about,
     });
   }
 
   static Future<void> updateProfilePicture(File file) async {
-    //getting image file extension
     final ext = file.path.split('.').last;
     log('Extension: $ext');
 
@@ -94,9 +94,9 @@ class APIs {
     });
 
     //updating image in firestore database
+    print(me.toJson());
     var image = await ref.getDownloadURL();
-    log(user.uid);
-    me.image = image;
-    await firestore.collection('users').doc(user.uid).update({'image': image});
+    await firestore.collection('chatUser').doc(me.id).update({'image': image});
+    me = me.copyWith(image: image);
   }
 }
